@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>CAUTION｜IGNITION : G-BALL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="
+  margin:0;
+  background:black;
+  color:#ff0044;
+  font-family: Arial, sans-serif;
+  text-align:center;
+">
+
+  <div style="padding:15vh 20px;">
+    <h1 style="font-size:42px; letter-spacing:4px;">
+      ⚠️ CAUTION
+    </h1>
+
+    <p style="color:#ccc; margin-top:30px; line-height:1.8;">
+      本網站包含強烈視覺刺激、<br>
+      失控可愛、黑色幽默與精神污染級偶像內容。<br><br>
+      若你未滿 18 歲，或無法承受心理衝擊，<br>
+      <strong style="color:#ff0044;">請立即離開。</strong>
+    </p>
+
+    <div style="margin-top:50px;">
+      <button onclick="enterSite()" style="
+        background:#ff0044;
+        color:black;
+        border:none;
+        padding:14px 28px;
+        font-size:16px;
+        font-weight:bold;
+      ">
+        我已滿 18 歲
+      </button>
+
+      <div style="margin-top:20px;">
+        <a href="https://www.google.com" style="color:#666;">
+          離開
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function enterSite() {
+      localStorage.setItem('gb_verified', 'yes');
+      window.location.href = 'index.html';
+    }
+  </script>
+
+</body>
+</html>
