@@ -14,6 +14,12 @@
   text-align:center;
 ">
 
+  <script>
+    if (localStorage.getItem('gb_verified') !== 'yes') {
+      window.location.href = 'entry.html';
+    }
+  </script>
+
   <div style="padding-top:30vh;">
     <h1 style="font-size:42px; letter-spacing:4px;">
       IGNITION : G-BALL
