@@ -4,15 +4,93 @@
   <meta charset="UTF-8">
   <title>IGNITION : G-BALL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Glitch 標題 */
+    .glitch {
+      position: relative;
+      font-size: 42px;
+      letter-spacing: 4px;
+      animation: glitch 1.5s infinite;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .glitch::before {
+      color: #ff0044;
+      animation: glitchTop 1.5s infinite;
+    }
+
+    .glitch::after {
+      color: #00c8ff;
+      animation: glitchBottom 1.5s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-1deg); }
+      40% { transform: skew(1deg); }
+      60% { transform: none; }
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+      50% { clip-path: inset(0 0 40% 0); transform: translate(2px, 2px); }
+      100% { clip-path: inset(0 0 80% 0); transform: translate(-2px, 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(60% 0 0 0); transform: translate(2px, 0); }
+      50% { clip-path: inset(40% 0 0 0); transform: translate(-2px, -2px); }
+      100% { clip-path: inset(60% 0 0 0); transform: translate(0, 2px); }
+    }
+
+    /* 閃爍警告 */
+    .blink {
+      color: #ff0044;
+      animation: blink 1.2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* CRT 掃描線 */
+    .scanlines::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      pointer-events: none;
+    }
+  </style>
 </head>
 
-<body style="
-  margin:0;
-  background:black;
-  color:white;
-  font-family: Arial, sans-serif;
-  text-align:center;
-">
+<body class="scanlines">
 
   <script>
     if (localStorage.getItem('gb_verified') !== 'yes') {
@@ -21,21 +99,33 @@
   </script>
 
   <div style="padding-top:30vh;">
-    <h1 style="font-size:42px; letter-spacing:4px;">
+    <div class="glitch" data-text="IGNITION : G-BALL">
       IGNITION : G-BALL
-    </h1>
+    </div>
 
-    <p style="color:#ff0044; margin-top:16px;">
+    <p class="blink" style="margin-top:20px;">
       ⚠️ CAUTION // IDOL OVERLOAD
     </p>
 
-    <p style="color:#888; font-size:14px;">
+    <p style="color:#888;font-size:14px;">
       可愛已超出安全值
     </p>
 
     <p style="margin-top:30px;">
-      <a href="members.html" style="color:#ff0044; text-decoration:none;">
+      <a href="members.html" style="color:#ff0044;text-decoration:none;">
         ▶ 成員介紹
+      </a>
+    </p>
+
+    <p style="margin-top:14px;">
+      <a href="schedule.html" style="color:#ff0044;text-decoration:none;">
+        ▶ 行程 Schedule
+      </a>
+    </p>
+
+    <p style="margin-top:14px;">
+      <a href="contact.html" style="color:#ff0044;text-decoration:none;">
+        ▶ 聯絡 Contact
       </a>
     </p>
   </div>
